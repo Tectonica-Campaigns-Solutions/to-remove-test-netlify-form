@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useState } from "react"
 
 const pageStyles = {
   color: "#232129",
@@ -124,9 +125,16 @@ const links = [
 ]
 
 const IndexPage = () => {
+  const [step, setStep] = useState(1)
+  const handlerSteps = () => {
+    setStep(step + 1)
+  }
+  const handleSubmit = (e) => {
+    console.log(e);
+  }
   return (
     <div>
-      <form name="Contact Form" method="POST" data-netlify="true">
+      {/* <form name="Contact Form" method="POST" data-netlify="true">
       <input type="hidden" name="form-name" value="Contact Form" />
       <div>
         <label>Your Email:</label>
@@ -140,9 +148,51 @@ const IndexPage = () => {
           <input type="checkbox" name="consent" value="yes"/>
         </div>
       <button type="submit">Send</button>
-    </form>
+      </form> */}
+      <form
+      onSubmit={ (e) => handleSubmit(e) } 
+      className="form form--interest"  
+      name="Company Email Form" 
+      method="POST" 
+      netlify-honeypot="bot-field"
+      data-netlify="true"
+      id="company-email-form"
+    >
+      <input readOnly type="hidden" name="form-name" value="Company Email Form" />
+
+      {
+        step === 1
+          &&
+        <CompanyEmailFormStep1 />
+      }
+      {
+        step === 2
+         &&
+        <CompanyEmailFormStep2 />
+      }
+      </form>
+      <button onClick={() => handlerSteps()}>Next button</button>
     </div>
   )
+}
+
+const CompanyEmailFormStep1 = () => {
+  return (
+    <div>
+      <label htmlFor="name">Name</label>
+      <input type="text" name="name" />
+   </div>
+ )
+}
+
+const CompanyEmailFormStep2 = () => {
+  return (
+    <div>
+      <label htmlFor="name">Consents</label>
+      <input type="checkbox" name="consent1" value="yes" />
+      <input type="checkbox" name="consent2" vañue="no" />
+   </div>
+ )
 }
 
 export default IndexPage
