@@ -150,7 +150,6 @@ const IndexPage = () => {
       <button type="submit">Send</button>
       </form> */}
       <form
-      onSubmit={ (e) => handleSubmit(e) } 
       className="form form--interest"  
       name="Company Email Form" 
       method="POST" 
