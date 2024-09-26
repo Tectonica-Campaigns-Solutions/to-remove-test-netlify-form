@@ -166,7 +166,7 @@ const IndexPage = () => {
         <CompanyEmailFormStep1 />
       }
       {
-        step === 2
+        step === 1
          &&
         <CompanyEmailFormStep2 />
       }
