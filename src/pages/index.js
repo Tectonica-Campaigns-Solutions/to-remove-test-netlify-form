@@ -190,7 +190,7 @@ const CompanyEmailFormStep2 = () => {
       <label htmlFor="name">Consents</label>
       <input type="checkbox" name="consent1" value="yes" />
       <input type="checkbox" name="consent2" vañue="no" />
-      <input type="submit" value="Send" />
+      <button type="submit">Send</button>
    </div>
  )
 }
